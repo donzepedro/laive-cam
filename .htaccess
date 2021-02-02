@@ -1,0 +1,9 @@
+ErrorDocument 403 http://www.laivecam.com/
+ErrorDocument 404 http://www.laivecam.com/
+AddDefaultCharset utf-8
+RewriteEngine On
+RewriteRule ^(.*)$ web/$1
+<Limit GET POST PUT DELETE>
+    Order allow,deny
+    Allow from all
+</Limit>

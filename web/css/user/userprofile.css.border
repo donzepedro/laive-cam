@@ -1,0 +1,46 @@
+.content-body li{
+    list-style-type: none;
+    padding: 10px 5px 5px 5px;
+}
+.usermenu{
+    border: 1px solid #44658c;
+    border-radius: 2px;
+    float: left;
+    min-width: 25%;
+    max-width: 25%;
+    margin: 5px;
+    background-color: #eaeaea;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.menulist{
+    color: #44658c;
+}.menulist a{
+    text-decoration: none;
+}
+.t-header{
+    margin: 10px;
+}
+
+.content-area{
+    border: 1px solid #44658c;
+    border-radius: 2px;
+    min-width: 73%;
+    margin: 5px;
+    float: left;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.content-area-body{
+    background-color: #ffffff;
+    padding-left: 5%;
+    border: 1px solid red !important;
+}
+.btn-area{
+    margin: 10px;
+    text-align: right;
+}
+.pswdchange-form{
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+    width: 50%;
+}

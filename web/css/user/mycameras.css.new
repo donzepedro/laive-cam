@@ -1,0 +1,198 @@
+.nav{
+    height: 70px;
+    border-bottom: 2px solid #7d7d7d;
+    /*border: 1px solid red;*/
+    font-size: 20px;
+    padding: 20px;
+}
+.nav a{
+    /*border: 1px solid red;*/
+    padding: 15px 40px 15px 40px;
+}
+.addcam{
+    background-color: #486991;
+    margin-left: 50px;
+    /*width: 250px;*/
+    border: none;
+    /*padding: 0px 15px 0px 15px;*/
+}
+.addcam-href{
+    color: white;
+    background-color: #486991;
+}
+.addcam a{
+    font-weight: 500;
+    text-decoration: white;
+}
+
+.addcam a:hover{
+    text-decoration: none;
+}
+.allcamerasblock{
+    overflow: hidden;
+    margin: 0px 0px 40px 0px;
+    padding-left: 10%;
+    /*border: 1px solid red*/
+}
+.eachcam{
+    /*border: 1px solid red;*/
+    float: left;
+    margin: 0 40px 40px 40px
+}
+
+.eachcam button{
+    background-color: #486991;
+    border: none;
+    width: 250px;
+    height: 50px;
+    font-size: 18px;
+    padding: 0px 15px 0px 15px;
+    margin: 10px 10px 0 0 ;
+}
+.playerwindow{
+    float: left;
+    margin-right: 20px;
+}
+
+/*===========================WATCH ONILINE====================*/
+
+.online{
+    margin: 5% 40% 30% 40%;
+}
+
+/*==========================EDIT CAMERA=======================*/
+.myform{
+
+    width: 33.3%;
+    margin-left: 33.3%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 1px solid #2b579a  !important;
+    border-radius: 4px;
+    background: #ffffff;
+}
+.fields{
+    /*border: 1px solid red;*/
+    margin: 30px 12% 0px 12%;
+}
+.field{
+    margin-top: -20px;
+}
+.mybtn{
+    margin-bottom: 10px ;
+    margin-right: 12% ;
+    text-align: right;
+}
+.lables{
+    margin-top: 10px ;
+}
+
+/*=======================ARCHIVE==============================*/
+.datepickwrap{
+    background-color: #ffffff;
+    width: 35%;
+    overflow: hidden;
+    border: 1px solid #44658c !important;
+    border-radius: 3px;
+    margin: 1%;
+}
+.date-field{
+    border: none;
+    /*background: red;*/
+    /*text-align: center;*/
+
+
+}
+.datepick{
+    width: 80%;
+    float: left;
+}
+.date-btn{
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    background: #FFFFFF;
+    border: none;
+    background-image: url(../../public/images/refresh.png);
+    margin: 4px 0 0 4px;
+    float: right;
+}
+.reclistwrap{
+    width: 35%;
+    border: 1px solid #44658c !important;
+    background: #FFFFFF;
+    border-radius: 3px;
+    margin: 1%;
+
+    /*overflow: hidden;*/
+}
+.reclist{
+    overflow-y: scroll;
+}
+
+.rec-head{
+    height: 5%;
+    background: #44658c;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+}
+.time{
+    opacity: 0.7;
+    float: right;
+    margin-right: 5px;
+    font-size: 17px;
+}
+.subject{
+    opacity: 0.7;
+    margin-left: 5px;
+    font-size: 17px;
+}
+.eachwrap{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-bottom: 2px solid black;
+}
+.num {
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    float: left;
+    /*border: 1px solid red;*/
+}
+.eachtitle{
+    /*border: 1px solid red;*/
+    float: left;
+}
+.eachname{
+    /*border: 1px solid red;*/
+    float: left;
+}
+.eachtime{
+    text-align: right;
+    /*border: 1px solid red;*/
+}
+.eachdate{
+    text-align: right;
+    /*border: 1px solid red;*/
+}
+/*==========================ADD CAMERA( BIND DEV)====================================================================*/
+.myform-binddev{
+    padding: 2%;
+    width: 70%;
+    margin-left: 3%;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+.field-binddev{
+    width: 50%;
+    margin-bottom: 3%;
+}
+.btns{
+    float: left;
+    margin: 0px 0px 0 5%;
+}
+.btn{
+    width: 100px;
+}

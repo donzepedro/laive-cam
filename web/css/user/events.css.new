@@ -1,0 +1,160 @@
+.datepickwrap{
+    background-color: #ffffff;
+    width: 35%;
+    overflow: hidden;
+    border: 1px solid #44658c !important;
+    border-radius: 3px;
+    margin: 1%;
+}
+.date-field{
+    border: none;
+    /*background: red;*/
+    /*text-align: center;*/
+
+
+}
+.datepick{
+    width: 80%;
+    float: left;
+}
+.date-btn{
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    background: #FFFFFF;
+    border: none;
+    background-image: url(../../public/images/refresh.png);
+    margin: 4px 0 0 4px;
+    float: right;
+}
+.reclistwrap{
+    width: 35%;
+    border: 1px solid #44658c !important;
+    background: #FFFFFF;
+    border-radius: 3px;
+    margin: 1%;
+    overflow-y: scroll;
+    float: left;
+}
+
+
+.reclist{
+    overflow-y: scroll;
+}
+
+.rec-head{
+    height: 5.5%;
+    background: #44658c;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+}
+.time{
+    opacity: 0.7;
+    float: right;
+    margin-right: 5px;
+    font-size: 17px;
+}
+.subject{
+    opacity: 0.7;
+    margin-left: 5px;
+    font-size: 17px;
+}
+.recdate {
+    padding: 10px;
+    background: rgba(68, 101, 140, 0.5);
+    font-weight: bold;
+    clear:both;
+}
+.recname, .rectitle, .rectime, .eachrecdate{
+    color:#44658c;
+    font-weight: bold;
+    border: 1px solid red !important;
+}
+.counter{
+   padding: 0 10px 20px 5px;
+    border-bottom: 5px outset rgba(0, 0, 0, 0.28);
+}
+.recname, .rectitle{
+    width: 70%;
+    float: left;
+}
+
+.rectime{
+    width: 25%;
+    float: right;
+}
+.eachrecdate{
+    width: 25%;
+    float: right;
+}
+.afterrec{
+    border-bottom: 5px outset rgba(0, 0, 0, 0.28);
+}
+.eachwrap1{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-bottom: 2px solid #d5d5d5;
+    padding-right: 10px;
+}
+.eachwrap2{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-bottom: 2px solid #d5d5d5;
+    background: #ededed;
+    padding-right: 10px;
+}
+.num {
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    float: left;
+    /*border: 1px solid red;*/
+}
+.eachtitle{
+    /*border: 1px solid red;*/
+    float: left;
+}
+.eachname{
+    /*border: 1px solid red;*/
+    float: left;
+}
+.eachtime{
+    text-align: right;
+    /*border: 1px solid red;*/
+}
+.eachdate{
+    text-align: right;
+    /*border: 1px solid red;*/
+}
+.playerswrap{
+    border: 1px solid red !important;
+    width: 500px;
+    height: 500px;
+    margin-left: 45%;
+    overflow-y: scroll;
+}
+
+.playerswrap{
+
+    border: 1px solid #44658c !important;
+    background: #FFFFFF;
+    border-radius: 3px;
+    width: 61%;
+    margin:1%;
+    height: 800px;
+    float: right;
+}
+
+.eachrecplayer{
+    /*border: 1px solid red !important;*/
+
+}
+.eachrec{
+    /*border: 1px solid red !important;*/
+    margin: 1%;
+    width: 21%;
+    float: left;
+}

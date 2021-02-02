@@ -1,0 +1,18 @@
+.modal-dialog{
+    width: 25%;
+}
+.modal-footer{
+    text-align: center;
+}
+.modal-header{
+    text-align: center;
+    font-size: 12px;
+    padding: 0;
+}
+.modal-body{
+    text-align: center;
+}
+.modal-header .close {
+    margin: 5px;
+    text-align: center;
+}

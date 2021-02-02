@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:900&subset=cyrillic,cyrillic-ext,latin-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto:1000&subset=cyrillic,cyrillic-ext,latin-ext");
+
+.f-page{
+    border: 2px solid black;
+    /*margin-top: 2%;*/
+    background: white;
+}
+.first-block{
+    /*width: 1230px;*/
+    overflow: hidden;
+/*    border: 1px solid red !important;*/
+    font-family: 'Roboto',Arial,sans-serif;;
+
+
+}
+.first-block h1{
+    /*border: 1px solid red !important;*/
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-size: 35px;
+}
+
+.first-block-left{
+    /*border: 1px solid blue !important;*/
+    float: left;
+    font-size: 28px;
+    font-weight: 200;
+    width: 400px;
+
+}
+.first-block-right{
+    /*border: 1px solid green !important;*/
+    /*margin-left: 20px;*/
+    float: left;
+}
+.sign{
+/*    border: 1px solid deeppink !important;*/
+    text-align: center;
+    /*width: 40%;*/
+}

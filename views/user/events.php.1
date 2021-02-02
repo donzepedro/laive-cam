@@ -1,0 +1,214 @@
+<?php
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+use yii\bootstrap\Modal;
+use kartik\date\DatePicker;
+use Firebase\JWT\JWT;
+$jwt=new JWT;
+$this->registerCssFile('/css/user/events.css',['depends' => [yii\bootstrap\BootstrapPluginAsset::class]]);
+?>
+<div class="datepickwrap">
+    <div class="datepick">
+            <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]) ?>
+            <?php
+            $i=1;
+
+            if (Yii::$app->language == 'ru') $lang = 'ru';
+            $lang = Yii::$app->language == 'ru' ? 'ru' : 'en';
+	    $value = $filtdate ? date('d-m-Y',$filtdate) : date('d-m-Y');
+            echo DatePicker::widget([
+                'type'=>DatePicker::TYPE_COMPONENT_PREPEND,
+                'name' => 'check_issue_date',
+                'language'=>$lang,
+                'removeButton' => false,
+                'size' => 'lg',
+                'value' => $value,
+                'options' => [
+                    'placeholder' => 'Select issue date ...',
+                    'class'=>'date-field',
+                ],
+                'pluginOptions' => [
+                    'autoclose'=>'true',
+                    'format' => 'dd-mm-yyyy',
+                    'todayHighlight' => true,
+                ]
+            ]);
+            ?>
+    </div>
+    <div class="date-btn">
+        <?= Html::submitButton('', ['class' => 'date-btn']) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+</div>
+
+<?php if($filtdate == null): ?>
+                <div class="playerswrap"">
+                    <div class="rec-head"> Refresh </div>
+                        <div class="eachplayer">
+                            <?php for($i=1; $i<=count($titles); $i++): ?>
+                                        <div class="eachrec">
+                                        <div class="eachrecplayer">
+
+                                <a href="<?= DOMAIN ?>/user/watchcamera?id=<?php
+                                    require JWTCONF;
+                                    $token = array(
+                                        "iss" => $iss,
+                                        "aud" => $aud,
+                                        "iat" => $iat,
+                                        "nbf" => $nbf,
+                                        "data" => array(
+                                            "id" => $titles[$i-1]['id'],
+                                        )
+                                    );
+
+                                    $id = $jwt->encode($token,$key)?><?=$id ?>">
+                                            <img src="<?= DOMAIN ?>/public/images/playersample.png">
+                                        </div>
+                                        <p><?= $titles[$i-1]['title']?></p>
+                                    </div>
+                                </a>
+                            <?php endfor;?>
+                        </div>
+                </div>
+<?php else:?>
+<div class="playerswrap"">
+<div class="rec-head"> Refresh </div>
+<div class="eachplayer">
+    <?php for($i=1; $i<=count($titles); $i++): ?>
+        <?php if($filtdate == strtotime($titles[$i-1]['date'])):?>
+                    <a href="<?= DOMAIN ?>/user/watchcamera?id=<?php
+                    require JWTCONF;
+                    $token = array(
+                        "iss" => $iss,
+                        "aud" => $aud,
+                        "iat" => $iat,
+                        "nbf" => $nbf,
+                        "data" => array(
+                            "id" => $titles[$i-1]['id'],
+                        )
+                    );
+
+                    $id = $jwt->encode($token,$key)?><?=$id ?>">
+                    <div class="eachrec">
+                    <div class="eachrecplayer">
+                        <img src="<?= DOMAIN ?>/public/images/playersample.png">
+                    </div>
+                    <p><?= $titles[$i-1]['title']?></p>
+                    <p><?= $titles[$i-1]['name']?></p>
+                    </div>
+            </a>
+        <?php endif ?>
+    <?php endfor;?>
+</div>
+</div>
+<?php endif; ?>
+
+<div class="reclistwrap">
+    <div class="rec-head"><?= Yii::t('commonEn', 'События'); ?> : </div>
+
+        <span class="subject"># <?=Yii::t('commonEn', 'Тема'); ?></span>
+        <span class="time"><?= Yii::t('commonEn', 'Время'); ?></span>
+    <div class="reclist">
+        <?php $jwt = NEW JWT; ?>
+        <?php if($filtdate!=null): ?>
+            <?php foreach ($allrecords as $key=>$val): ?>
+                <?php if((strtotime($val['date'])) == $filtdate): ?>
+<!--                        --><?//= $val['date']; ?>
+                    <p class="recdate"> <?= $val['date'];?> </p>
+                    <table style="width: 100%">
+                        <?php $j=0;?>
+                        <?php foreach ($val as $k=>$recs): ?>
+                            <?php  if(preg_match('/^name([0-9]*)$/',$k,$matches)): ?>
+                                <?php $id = $titles[$matches[1]]['id'];?>
+                                <tr>
+                                    <th rowspan="2" class="counter"> <?php echo $i; $i++?></th>
+                                    <td style="color: #44658c;"><a href="<?= DOMAIN ?>/user/watchcamera?id=<?php $id;
+                                    require JWTCONF;
+                                    $token = array(
+                                            "iss" => $iss,
+                                            "aud" => $aud,
+                                            "iat" => $iat,
+                                            "nbf" => $nbf,
+                                            "data" => array(
+                                                "id" => $id,
+                                            )
+                                        );
+                                    $id = $jwt->encode($token,$key)?><?=$id?>">
+                                        <?= $recs;?></td>
+                                    <td><?= $val['date'];?></td>
+                                </tr>
+                                <tr>
+                            <?php  elseif(preg_match('/^title[0-9]*$/',$k)): ?>
+                              <td class="afterrec" style="color: #44658c;"><?=$recs;?></td>
+                            <?php  elseif(preg_match('/^time[0-9]*$/',$k)): ?>
+                                <td class="afterrec"><?= $recs;?></td>
+                                </tr>
+                            <?php endif; ?>
+                        <?php endforeach; $j++; ?>
+                    </table>
+                <?php endif; ?>
+            <?php endforeach ?>
+        <?php elseif($filtdate == null):?>
+        <?php foreach ($allrecords as $key=>$val):?>
+            <p class="recdate"> <?= $val['date'];?> </p>
+        <table style="width: 100%">
+            <?php $j=0;?>
+                <?php foreach ($val as $k=>$recs): ?>
+                    <?php  if(preg_match('/^name([0-9]*)$/',$k,$matches)): ?>
+                            <?php $id = $titles[$matches[1]]['id'];?>
+                        <tr>
+                            <th rowspan="2" class="counter"> <?php echo $id; $i++?></th>
+                            <td style="color: #44658c;"> <a href="<?= DOMAIN ?>/user/watchcamera?id=<?php $id;
+                                require JWTCONF;
+                                $token = array(
+                                    "iss" => $iss,
+                                    "aud" => $aud,
+                                    "iat" => $iat,
+                                    "nbf" => $nbf,
+                                    "data" => array(
+                                        "id" => $id,
+                                    )
+                                );
+                                $id = $jwt->encode($token,$key)?><?=$id?>">
+                                     <?= $recs;?>
+                            <td><?= $val['date'];?></td>
+                        </tr>
+
+                        <tr>
+                    <?php  elseif(preg_match('/^title[0-9]*$/',$k)): ?>
+                            <td class="afterrec" style="color: #44658c;"><?=$recs;?></td>
+                    <?php  elseif(preg_match('/^time[0-9]*$/',$k)): ?>
+                            <td class="afterrec"><?= $recs;?></td>
+                        </tr>
+                    <?php endif; ?>
+
+                <?php endforeach; $j++; ?>
+            </table>
+        <?php endforeach; ?>
+        <?endif;?>
+<!--        <table style="width: 100%">-->
+<!--            <tr>-->
+<!--                <th rowspan="2"> 1 </th>-->
+<!--                <td> File name </td>-->
+<!--                <td> date </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td> File title</td>-->
+<!--                <td> time</td>-->
+<!--            </tr>-->
+<!--        </table>-->
+    </div>
+</div>
+
+<!--<div class="content-area-body">-->
+<!--    --><?php //$form=ActiveForm::begin(['options'=>['id'=>'change-pswd'], 'method'=>'post', 'action'=>'']) ?>
+<!--    <div class="pswdchange-form">-->
+<!--        --><?//= $form->field($changepswd,'oldpassword')->passwordInput(['placeholder'=>Yii::t('commonEn', 'Старый пароль')]) ?>
+<!--        --><?//= $form->field($changepswd,'newpassword')->passwordInput(['placeholder'=>Yii::t('commonEn', 'Новый пароль')]) ?>
+<!--        --><?//= $form->field($changepswd,'confirmpassword')->passwordInput(['placeholder'=>Yii::t('commonEn', 'Подвердите пароль')]) ?>
+<!--    </div>-->
+<!--</div>-->
+
+<div style="clear: both">
+
+</div>

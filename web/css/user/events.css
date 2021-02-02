@@ -1,0 +1,343 @@
+.leftblock{
+    float: left;
+    width: 35%;
+}
+.datepickwrap{
+    background-color: #ffffff;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #44658c !important;
+    border-radius: 3px;
+    margin: 1%;
+    margin-top: -10px;
+}
+.date-field{
+    border: none;
+    /*background: red;*/
+    /*text-align: center;*/
+
+
+}
+.modal-dialog h4, .modal-dialog p {
+    color: #000;
+}
+.times {
+    display: inline-flex;
+    width: 90%;
+}
+.times label {
+    font-weight: 400;
+    line-height: 30px;
+}
+#time_s, #time_po {
+    width: 45%;
+    margin: 0 10px;
+}
+.search-tag {
+    padding-top: 15px;
+}
+.search-tag input {
+    border-radius: 20px;
+}
+.glyphicon-remove {
+    top: 15px;
+    right: 15px;
+}
+#filter-modal .btn {
+    height: 40px;
+    font-size: 14px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+#filter-modal .btn-close {
+    border: 1px solid #4b77a8;
+    background: transparent;
+    color: #4b77a8;
+}
+.modal-footer.text-center {
+    text-align: center;
+}
+#filter-modal .btn-close {
+    border: 1px solid #4b77a8;
+    background: transparent;
+    color: #4b77a8;
+}
+.datepick{
+    width: 92%;
+    float: left;
+}
+.date-btn button{
+    width: 35px;
+    height: 35px;
+    background-size: contain;
+    background: #FFFFFF;
+    border: none;
+    background-image: url(../../public/images/refresh.png);
+    float: right;
+    margin-top: 15px;
+}
+#padding-panel {
+    padding-bottom: 0px;
+    padding-top: 0;
+    padding-left: 0;
+}
+#padding-panel  h4 {
+    font-weight: 600;
+}
+#padding-panel .panel-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: inherit;
+    width: 20%;
+    text-align: left;
+}
+#padding-panel .search-title {
+    width: 35%;
+    position: relative;
+    left: 15px;
+    top: -5px;
+}
+.form-control-feedback {
+    pointer-events: visible!important;
+    color: #4b77a8;
+    cursor: pointer;
+}
+#padding-panel .search-title input {
+    border-radius: 20px;
+}
+#padding-panel .filter-modal {
+    position: relative;
+    color: #ffff;
+    width: 30%;
+    text-align: center;
+}
+#padding-panel .filter-modal a {
+    color: #fff;
+    display: block;
+    line-height: 22px;
+    padding-left: 15px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.filter-modal .glyphicon-filter {
+    color: #fff;
+    position: absolute;
+    left: 25px;
+    font-size: 15px;
+    top: -5px;
+}
+.event-refresh {
+    color: #fff!important;
+    line-height: 22px;
+    font-size: 15px;
+    font-weight: 400;
+}
+.reclistwrap .rec-head {
+    padding-bottom: 0;
+}
+#datenow_index {
+    margin-left: 15px!important;
+    font-size: 18px;
+    font-weight: 600;
+}
+.input-group.calendar {
+    position: relative;
+    display: table;
+    border-collapse: separate;
+    width: 100%;
+    margin: auto;
+    border: 1px solid #43658c;
+}
+.reclistwrap{
+    width: 100%;
+    border: 1px solid #44658c !important;
+    background: #FFFFFF;
+    border-radius: 3px;
+    margin: 1%;
+    overflow-y: auto;
+    float: left;
+}
+
+
+.reclist{
+    overflow-y: scroll;
+}
+
+.rec-head {
+    height: 5.5%;
+    background: #4b77a8;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 10px;
+    text-align: right;
+}
+.time{
+    opacity: 0.7;
+    float: right;
+    margin-right: 15px;
+    font-size: 17px;
+}
+.subject{
+    opacity: 0.7;
+    margin-left: 15px;
+    font-size: 17px;
+}
+.recdate {
+    padding: 10px;
+    background: #c9dfed;
+    font-weight: bold;
+    clear:both;
+    font-size: 16px;
+}
+.recname, .rectitle, .rectime, .eachrecdate{
+    color:#44658c;
+    font-weight: bold;
+    border: 1px solid red !important;
+}
+.counter{
+   padding: 0 10px 20px 5px;
+    border-bottom: 5px outset rgba(0, 0, 0, 0.28);
+}
+.recname, .rectitle{
+    width: 70%;
+    float: left;
+}
+
+.rectime{
+    width: 25%;
+    float: right;
+}
+.eachrecdate{
+    width: 25%;
+    float: right;
+}
+.afterrec{
+    border-bottom: 5px outset rgba(0, 0, 0, 0.28);
+}
+.eachwrap1{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+}
+.eachwrap2 {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+    padding: 0;
+}
+.eachwrap2 .num, .eachwrap2 .eachtitle, .eachwrap2 .eachdate,
+.eachwrap1 .num, .eachwrap1 .eachtitle, .eachwrap1 .eachdate {
+    font-size: 18px;
+    color: #000;
+}
+.num {
+    text-align: center;
+    padding: 10px 10px 10px 10px;
+    float: left;
+    /*border: 1px solid red;*/
+}
+.eachtitle{
+    /*border: 1px solid red;*/
+    width: 70%;
+    float: left;
+    word-wrap: break-word;
+    padding: 10px 10px 10px 10px;
+    font-family: Roboto, sans-serif !important;
+}
+.eachname{
+    /*border: 1px solid red;*/
+    float: left;
+}
+.eachtime{
+    text-align: right;
+    /*border: 1px solid red;*/
+}
+.eachdate{
+    text-align: right;
+    padding: 10px 10px 10px 10px;
+
+    /*border: 1px solid red;*/
+}
+.playerswrap{
+    border: 1px solid red !important;
+    width: 500px;
+    height: 500px;
+    margin-left: 45%;
+    overflow-y: auto;
+}
+.tariff-plan a:hover {
+    text-decoration: none !important;
+    color:#fff !important;
+}
+.tariff-plan a, .tariff-plan a:hover, .tariff-plan a:active, .tariff-plan a:focus {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+    margin-left: 5px;
+}
+.playerswrap{
+    border: 1px solid #44658c !important;
+    background: #FFFFFF;
+    border-radius: 3px;
+    width: 63%;
+    margin:0.2% 0.5% 0.5% 0;
+    height: auto;
+    max-height: 800px;
+    float: right;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: -10px;
+}
+.eachwrap1 {
+    background-color: #f9f9f9;
+    font-size: 16px;
+}
+.reclistwrap .rec-head {
+    margin-bottom: 5px;
+}
+.recdate:first-child {
+   margin-top: 5px;
+}
+.playerwindow {
+    width: 100%;
+    padding: 16px 9px;
+}
+.playerwindow > div {
+    width: 100%!important;
+}
+.eachrec .cyan {
+    color: #5988be;
+    font-size: 18px;
+    padding: 0 9px;
+    font-weight: 600;
+    line-height: initial;
+    height: 43px;
+    overflow: hidden;
+    margin: 0;
+}
+.eachrec {
+    padding-left: 0;
+    padding-right: 0;
+}
+.eachrec:nth-child(n+16) {
+    display:none;
+}
+.eachrecplayer{
+    /*border: 1px solid red !important;*/
+
+}
+.eachrec{
+    /*border: 1px solid red !important;*/
+    margin-bottom: 0;
+    overflow-wrap: break-word;
+}
+@media screen and (max-width: 1200px) {
+    #padding-panel .search-title {
+        width: 25%;
+    }
+}

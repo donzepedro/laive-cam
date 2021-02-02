@@ -1,0 +1,229 @@
+<?php
+use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
+use yii\bootstrap\Modal;
+use kartik\date\DatePicker;
+use Firebase\JWT\JWT;
+$jwt=new JWT;
+$this->registerCssFile('/css/user/events.css',['depends' => [yii\bootstrap\BootstrapPluginAsset::class]]);
+?>
+<script type="text/javascript" src="/assets/js/clappr.min.js"></script>
+
+<div class="datepickwrap">
+    <div class="datepick">
+            <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]) ?>
+            <?php
+            $i=1;
+
+            if (Yii::$app->language == 'ru') $lang = 'ru';
+            $lang = Yii::$app->language == 'ru' ? 'ru' : 'en';
+            $value = $filtdate ? date('d-m-Y',$filtdate) : date('d-m-Y');
+	    echo DatePicker::widget([
+                'type'=>DatePicker::TYPE_COMPONENT_PREPEND,
+                'name' => 'check_issue_date',
+                'language'=>$lang,
+                'removeButton' => false,
+                'size' => 'lg',
+                'value' => $value,
+                'options' => [
+                    'placeholder' => 'Select issue date ...',
+                    'class'=>'date-field',
+                ],
+                'pluginOptions' => [
+                    'autoclose'=>'true',
+                    'format' => 'dd-mm-yyyy',
+                    'todayHighlight' => true,
+                ]
+            ]);
+            ?>
+    </div>
+    <div class="date-btn">
+        <?= Html::submitButton('', ['class' => 'date-btn']) ?>
+    </div>
+    <?php ActiveForm::end(); ?>
+
+</div>
+
+
+<div class="reclistwrap">
+    <div class="rec-head"><?= Yii::t('commonEn', 'События'); ?>
+    </div>
+        <span class="subject">#<?= Yii::t('commonEn', 'Тема'); ?></span>
+        <span class="time"><?= Yii::t('commonEn', 'Время'); ?></span>
+
+    <?php if($filtdate != null): ?>
+
+                <?php if($filtdate != null) :?>
+                    <?php $printdate = ''; ?>
+                <?php else: ?>
+                <?php $printdate = $titles[0]['date'] ?>
+                <div class="recdate">
+                    <?= $printdate; ?>
+                </div>
+                <?php endif ?>
+                <?php for($i = 1; $i <= count($titles); $i++):?>
+                    <?php if($filtdate == strtotime($titles[$i-1]['date'])): ?>
+                            <?php if($printdate != $titles[$i-1]['date']): ?>
+                                <?php $printdate = $titles[$i-1]['date'] ?>
+                                <div class="recdate">
+                                    <?= $printdate ?>
+                                </div>
+                            <?php endif;?>
+                                <a href="<?= DOMAIN ?>/user/watchcamera?id=<?php
+                                require JWTCONF;
+                                $token = array(
+                                    "iss" => $iss,
+                                    "aud" => $aud,
+                                    "iat" => $iat,
+                                    "nbf" => $nbf,
+                                    "data" => array(
+                                        "id" => $titles[$i-1]['id'],
+                                    )
+                                );
+
+                                $id = $jwt->encode($token,$key)?><?=$id ?>">
+                            <?php if($i%2==0):?>
+                            <div class="eachwrap2">
+                                <?php else :?>
+                                <div class="eachwrap1">
+                                    <?php endif;?>
+                                    <div class="num">
+                                        <?= $i ?>
+                                    </div>
+                                    <div class="eachtitle">
+                                        <?= $titles[$i-1]['title']; ?>
+                                    </div>
+                                    <div class="eachdate">
+                                        <?= $titles[$i-1]['date']; ?>
+                                    </div>
+                                    <div class="eachtime">
+                                        <?= $titles[$i-1]['time']; ?>
+                                    </div>
+                                </div>
+                                </a>
+                    <?php endif;?>
+                <?php endfor;?>
+
+      <?php else :?>
+
+                    <?php $printdate = $titles[0]['date'] ?>
+                        <div class="recdate">
+                            <?= $printdate; ?>
+                        </div>
+                        <?php for($i = 1; $i <= count($titles); $i++):?>
+
+                            <?php if($printdate != $titles[$i-1]['date']): ?>
+                            <?php $printdate = $titles[$i-1]['date'] ?>
+                                <div class="recdate">
+                                    <?= $printdate ?>
+                                </div>
+                            <?php endif;?>
+              <a href="<?= DOMAIN ?>/user/watchcamera?id=<?php
+              require JWTCONF;
+              $token = array(
+                  "iss" => $iss,
+                  "aud" => $aud,
+                  "iat" => $iat,
+                  "nbf" => $nbf,
+                  "data" => array(
+                      "id" => $titles[$i-1]['id'],
+                  )
+              );
+
+              $id = $jwt->encode($token,$key)?><?=$id ?>">
+                            <?php if($i%2==0):?>
+                                <div class="eachwrap2">
+                            <?php else :?>
+                                <div class="eachwrap1">
+                            <?php endif;?>
+                                    <div class="num">
+                                        <?= $i ?>
+                                    </div>
+                                    <div class="eachtitle">
+                                        <?= $titles[$i-1]['title']; ?>
+                                    </div>
+                                    <div class="eachdate">
+                                        <?= $titles[$i-1]['date']; ?>
+                                    </div>
+                                    <div class="eachtime">
+                                        <?= $titles[$i-1]['time']; ?>
+                                    </div>
+                            </div>
+                                    </a>
+                        <?php endfor;?>
+
+      <?php endif; ?>
+
+</div>
+
+    <?php
+    $jwtkey = \Yii::$app->request->cookies;
+    $jwtkey = $jwtkey->getValue('trust','trustisnotset');
+//    debug ($titles);
+    ?>
+<?php if($filtdate == null): ?>
+                <div class="playerswrap">
+                    <div class="rec-head"> Refresh </div>
+			<div class="eachplayer">
+                            <?php for($i=1; $i<=count($titles); $i++): 
+				$video_url='https://videolivejournal.com:1936/vod/'.$user_id.'/'.$titles[$i-1]['camera_id'].'/'.$titles[$i-1]['name'].'/index.m3u8?key='.$jwtkey;
+				?>
+	                        <div class="eachrec">
+			        <div class="playerwindow" id="player<?=$i?>"></div>
+			        <script>
+			        var player = new Clappr.Player({
+			        source: "<?=$video_url?>",
+		    		parentId: "#player<?=$i?>",
+		    		mute: true,
+		    		autoPlay: false,
+		    		aspectRatio: 16/9,
+				width: 140,
+		    		height: 79,
+			    	responsive: true,
+		    		disableErrorScreen: true,
+		    		mediacontrol: {seekbar: "#E113D3", buttons: "#FFFFFF"}
+		    		});
+		    		</script>
+                                <p><?= $titles[$i-1]['title']?></p>
+                                </div>
+                            <?php endfor;?>
+                        </div>
+                </div>
+<?php else:?>
+                <div class="playerswrap">
+                    <div class="rec-head"> Refresh </div>
+			<div class="eachplayer">
+                            <?php for($i=1; $i<=count($titles); $i++): 
+				if($filtdate == strtotime($titles[$i-1]['date'])):
+
+				$video_url='https://videolivejournal.com:1936/vod/'.$user_id.'/'.$titles[$i-1]['camera_id'].'/'.$titles[$i-1]['name'].'/index.m3u8?key='.$jwtkey;
+				?>
+	                        <div class="eachrec">
+			        <div class="playerwindow" id="player<?=$i?>"></div>
+			        <script>
+			        var player = new Clappr.Player({
+			        source: "<?=$video_url?>",
+		    		parentId: "#player<?=$i?>",
+		    		mute: true,
+		    		autoPlay: false,
+		    		aspectRatio: 16/9,
+				width: 140,
+		    		height: 79,
+			    	responsive: true,
+		    		disableErrorScreen: true,
+		    		mediacontrol: {seekbar: "#E113D3", buttons: "#FFFFFF"}
+		    		});
+		    		</script>
+                                <p><?= $titles[$i-1]['title']?></p>
+                                </div>
+    				<?php endif ?>
+                            <?php endfor;?>
+                        </div>
+                </div>
+<?php endif; ?>
+
+
+<div style="clear: both">
+
+</div>
+
